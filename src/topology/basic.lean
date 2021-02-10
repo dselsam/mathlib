@@ -1066,7 +1066,7 @@ by simp only [continuous_iff_continuous_at, continuous_at_iff_ultrafilter]
 are continuous, and they coincide on the frontier (boundary) of the set `{a | p a}`. -/
 lemma continuous_if {p : α → Prop} {f g : α → β} {h : ∀a, decidable (p a)}
   (hp : ∀a∈frontier {a | p a}, f a = g a) (hf : continuous f) (hg : continuous g) :
-  continuous (λa, @ite (p a) (h a) β (f a) (g a)) :=
+  continuous (λa, @ite β (p a) (h a) (f a) (g a)) :=
 continuous_iff_is_closed.mpr $
 assume s hs,
 have (λa, ite (p a) (f a) (g a)) ⁻¹' s =
